@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.dell.docplus">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/doc"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/doc"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="Login" />
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".Doctor_Signup" />
+        <activity android:name=".Patient_Signup" />
+        <activity
+            android:name=".Doc_MainActivity"
+            android:label="@string/title_activity_doc__main"
+            android:logo="@drawable/doc"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Patient_MainActivity"
+            android:label="@string/title_activity_patient__main"
+            android:logo="@drawable/doc"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Doc_Search" />
+        <activity
+            android:name=".Make_Appointment"
+            android:label="Make Appointment" />
+        <activity
+            android:name=".Doc_profile"
+            android:label="Change Profile" />
+        <activity android:name=".Patient_profile"></activity>
+    </application>
+
+</manifest>

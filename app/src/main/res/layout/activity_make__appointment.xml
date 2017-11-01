@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.dell.docplus.Make_Appointment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/make_apt_profile_pic"
+            android:src="@drawable/prof"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="NAME"
+            android:layout_below="@+id/make_apt_profile_pic"
+            android:id="@+id/make_apt_name"
+            android:layout_marginTop="35dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Degree"
+            android:layout_below="@+id/make_apt_name"
+            android:id="@+id/make_apt_degree"
+            android:layout_marginTop="20dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/make_apt_Speciality"
+            android:id="@+id/make_apt_expr"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:text="Experience"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="Speciality"
+            android:id="@+id/make_apt_Speciality"
+            android:layout_below="@+id/make_apt_degree"
+            android:layout_marginTop="20dp"
+             />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/make_apt_expr"
+            android:id="@+id/make_apt_clinic_name"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:text="Clinic Name"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/make_apt_clinic_name"
+            android:id="@+id/make_apt_clinic_addr"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:inputType="textMultiLine"
+            android:text="Clinic Address"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date:"
+            android:textSize="20dp"
+            android:layout_alignBaseline="@+id/make_apt_date"
+            android:layout_below="@+id/make_apt_clinic_addr"
+            android:layout_marginRight="10dp"
+            android:id="@+id/make_apt_datatext"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_menu_calender"
+            android:focusable="false"
+            android:text="Choose date"
+            android:layout_toRightOf="@+id/make_apt_datatext"
+            android:editable="false"
+            android:id="@+id/make_apt_date"
+            android:layout_below="@id/make_apt_clinic_addr"
+            />
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_doc_edit_profile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.dell.docplus.Doc_profile">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                android:layout_marginTop="10dp"
+                android:focusable="false"
+                android:editable="false"
+                android:layout_below="@+id/profile_doc_profile_pic"
+                android:textSize="18dp"
+                android:id="@+id/profile_doc_name"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Mobile"
+                android:focusable="false"
+                android:editable="false"
+                android:inputType="number"
+                android:layout_below="@id/profile_doc_name"
+                android:layout_marginTop="5dp"
+                android:textSize="18dp"
+                android:id="@+id/profile_doc_mob"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Mobile"
+                android:inputType="number"
+                android:layout_below="@id/profile_doc_name"
+                android:layout_marginTop="5dp"
+                android:textSize="18dp"
+                android:id="@+id/profile_doc_mobEdit"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:focusable="false"
+                android:editable="false"
+                android:inputType="textEmailAddress"
+                android:layout_below="@+id/profile_doc_mob"
+                android:layout_marginTop="5dp"
+                android:textSize="18dp"
+                android:id="@+id/profile_doc_email"/>
+
+            <EditText
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:hint="Age"
+                android:focusable="false"
+                android:editable="false"
+                android:textSize="20dp"
+                android:layout_marginTop="20dp"
+                android:onClick="number1"
+                android:layout_below="@+id/profile_doc_email"
+                android:id="@+id/profile_doc_agetext"/>
+
+            <EditText
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/profile_doc_gender"
+                android:focusable="false"
+                android:editable="false"
+                android:hint="Gender"
+                android:layout_below="@id/profile_doc_email"
+                android:layout_toRightOf="@id/profile_doc_agetext"
+
+                android:orientation="horizontal"
+                android:layout_marginLeft="40dp"
+                android:textSize="20dp"
+                android:layout_marginTop="20dp"/>
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:editable="false"
+                android:layout_below="@id/profile_doc_agetext"
+                android:hint="Speciality"
+                android:textSize="18dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/profile_doc_speciality"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:editable="false"
+                android:layout_below="@id/profile_doc_speciality"
+                android:hint="Degrees"
+                android:textSize="18dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/profile_doc_degree"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/profile_doc_speciality"
+                android:hint="Degrees"
+                android:textSize="18dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/profile_doc_degreeEdit"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:editable="false"
+                android:layout_below="@id/profile_doc_degree"
+                android:hint="Experience"
+                android:inputType="number"
+                android:textSize="18dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/profile_doc_experience"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Clinic Name"
+                android:focusable="false"
+                android:editable="false"
+                android:layout_below="@id/profile_doc_experience"
+                android:id="@+id/profile_doc_cname"
+                android:textSize="18dp"
+                android:inputType="text"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Clinic Name"
+
+                android:layout_below="@id/profile_doc_experience"
+                android:id="@+id/profile_doc_cnameEdit"
+                android:textSize="18dp"
+                android:inputType="text"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Clinic Address"
+                android:focusable="false"
+                android:editable="false"
+                android:layout_below="@id/profile_doc_cname"
+                android:id="@+id/profile_doc_cadd"
+                android:textSize="18dp"
+                android:inputType="textMultiLine"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Clinic Address"
+                android:layout_below="@id/profile_doc_cname"
+                android:id="@+id/profile_doc_caddEdit"
+                android:textSize="18dp"
+                android:inputType="textMultiLine"
+                />
+            <EditText
+                android:layout_width="100dp"
+                android:enabled="false"
+                android:layout_height="wrap_content"
+                android:hint="Fees"
+                android:editable="false"
+                android:focusable="false"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@id/profile_doc_cadd"
+                android:id="@+id/profile_doc_fees"
+                android:textSize="18dp"
+                android:inputType="number"
+                />
+            <EditText
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:hint="Fees"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@id/profile_doc_cadd"
+                android:id="@+id/profile_doc_feesEdit"
+                android:textSize="18dp"
+                android:inputType="number"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₹"
+                android:textSize="25dp"
+                android:id="@+id/profile_doc_rupee"
+                android:focusable="false"
+
+                android:layout_alignBaseline="@+id/profile_doc_fees"
+                android:layout_alignBottom="@+id/profile_doc_fees"
+                android:layout_alignParentEnd="false" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:onClick="saveUser"
+                android:layout_below="@+id/profile_doc_fees"
+                android:id="@+id/profile_doc_btnEdit"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                android:onClick="editUser"
+                android:layout_below="@+id/profile_doc_fees"
+                android:id="@+id/profile_doc_btn"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/profile_doc_profile_pic"
+                android:src="@drawable/prof"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:elevation="10dp"
+
+    android:clickable="true"
+    android:padding="2dp"
+    android:dividerHeight="5dp"
+
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#ffffff"
+        android:padding="5dp">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/prof"
+            android:id="@+id/item_card_prof_image"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/item_card_prof_image">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name of the doctor"
+                    android:id="@+id/item_card_name"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="15dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Speciality"
+                    android:textSize="15dp"
+                    android:id="@+id/item_card_speciality"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Experience"
+                    android:textSize="15dp"
+                    android:layout_marginLeft="30dp"
+                    android:id="@+id/item_card_experience"/>
+                </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_height="wrap_content"
+                android:text="Clinic/Hospital Name"
+                android:id="@+id/item_card_cname"
+                android:textSize="15dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Clinic Address"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/item_card_cadd"
+                android:textSize="15dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Book"
+                android:textAlignment="viewEnd"
+                android:id="@+id/item_card_bookapt"
+                android:layout_marginRight="10dp"  />
+        </LinearLayout>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
+</LinearLayout>

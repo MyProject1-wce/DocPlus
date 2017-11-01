@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    tools:context="com.example.dell.docplus.Doctor_Signup">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create New Account"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:id="@+id/signup_doc"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:layout_below="@id/signup_doc"
+        android:layout_marginTop="10dp"
+        android:textSize="18dp"
+        android:id="@+id/signup_doc_name"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mobile"
+        android:inputType="number"
+        android:layout_below="@id/signup_doc_name"
+        android:layout_marginTop="5dp"
+        android:textSize="18dp"
+        android:id="@+id/signup_doc_mob"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:layout_below="@id/signup_doc_mob"
+        android:layout_marginTop="5dp"
+        android:textSize="18dp"
+        android:id="@+id/signup_doc_email"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Age"
+        android:editable="false"
+        android:textSize="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:onClick="number1"
+        android:layout_below="@+id/signup_doc_pass2"
+        android:id="@+id/signup_doc_agetext"/>
+
+    <RadioGroup
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/signup_doc_rg"
+        android:layout_below="@id/signup_doc_pass2"
+        android:layout_toRightOf="@id/signup_doc_agetext"
+        android:layout_alignEnd="@+id/signup_doc_btn"
+        android:orientation="horizontal"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:buttonTint="@color/colorrb"
+            android:layout_height="wrap_content"
+            android:id="@+id/signup_doc_rbm"
+            android:textSize="18dp"
+            android:text="Male"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/signup_doc_rbf"
+            android:textSize="18dp"
+            android:buttonTint="@color/colorrb"
+            android:layout_marginLeft="30dp"
+            android:text="Female"
+            />
+
+    </RadioGroup>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signup_doc_agetext"
+        android:focusable="false"
+        android:editable="false"
+        android:onClick="pickSpecial1"
+        android:hint="Speciality"
+        android:textSize="18dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/signup_doc_speciality"/>
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signup_doc_speciality"
+        android:hint="Degrees"
+        android:textSize="18dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/signup_doc_degree"/>
+    <EditText
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signup_doc_speciality"
+        android:hint="Experience"
+        android:inputType="number"
+        android:layout_alignRight="@+id/signup_doc_speciality"
+        android:textSize="18dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/signup_doc_experience"/>
+    <EditText
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:hint="City"
+        android:layout_below="@+id/signup_doc_cadd"
+        android:id="@+id/signup_doc_city"
+        android:layout_toRightOf="@+id/signup_doc_fees"
+        android:layout_marginLeft="10dp"
+        android:textSize="18dp"
+        android:layout_marginTop="5dp"
+        android:focusable="false"
+        android:editable="false"
+        android:onClick="CreateDialog"
+        android:capitalize="characters"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:layout_below="@id/signup_doc_email"
+        android:layout_marginTop="5dp"
+        android:textSize="18dp"
+        android:id="@+id/signup_doc_pass1"/>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Confirm Password"
+        android:layout_below="@id/signup_doc_pass1"
+        android:id="@+id/signup_doc_pass2"
+        android:textSize="18dp"
+        android:inputType="textPassword"
+
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Clinic Name"
+        android:layout_below="@id/signup_doc_degree"
+        android:id="@+id/signup_doc_cname"
+        android:textSize="18dp"
+        android:inputType="text"
+
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Clinic Address"
+        android:layout_below="@id/signup_doc_cname"
+        android:id="@+id/signup_doc_cadd"
+        android:textSize="18dp"
+        android:inputType="textMultiLine"
+
+        />
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:hint="Fees"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/signup_doc_cadd"
+        android:id="@+id/signup_doc_fees"
+        android:textSize="18dp"
+        android:inputType="number"
+
+        />
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="₹"
+         android:textSize="25dp"
+         android:id="@+id/signup_doc_rupee"
+         android:layout_alignBaseline="@+id/signup_doc_fees"
+         android:layout_alignBottom="@+id/signup_doc_fees"
+         android:layout_alignParentEnd="false" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create User"
+        android:onClick="CreateUser"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/signup_doc_fees"
+        android:layout_marginTop="15dp"
+        android:id="@+id/signup_doc_btn"/>
+     <Button
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:background="@mipmap/camera"
+         android:onClick="camera"/>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
