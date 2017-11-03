@@ -4,12 +4,15 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -43,6 +46,9 @@ public class Doc_Search extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doc__search);
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeButtonEnabled(true);
         pb=new ProgressDialog(this);
         pb.setTitle("Search Doctor");
         pb.setMessage("Searching Doctor For You");
@@ -102,7 +108,7 @@ public class Doc_Search extends AppCompatActivity {
                     //Log.d("txyz","Ret: "+name+" "+spec+" "+exp+" "+cnm+" "+add+" "+tcity);
                 }
                 if(models.size()==0){
-                    Toast.makeText(Doc_Search.this,"No Records Found",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Doc_Search.this,"No Records Found",Toast.LENGTH_SHORT).show();
                 recyclerView.setAdapter(null);}
                 else {
                     DoctorAdapter doctorAdapter=new DoctorAdapter(Doc_Search.this,models);
@@ -143,10 +149,22 @@ public class Doc_Search extends AppCompatActivity {
         dialog = builder.create();
         dialog.show();
     }
+    public void onBackPressed() {
+        //your method call
+        super.onBackPressed();
+        Intent in=new Intent(Doc_Search.this,Patient_MainActivity.class);
+        startActivity(in);
+        finish();
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        onBackPressed();
+        //this.finish();
+        return true;
 
+    }
     public void pickCity(View view) {
        dialog=new Dialog(Doc_Search.this);
-        final CharSequence[] items={"Ahmednagar","Akola","Amravati","Aurangabad","Baramati","Barshi","Beed","Bhusawal","Buldana","Chandrapur","Dhule","Gondiya","Ichalkaranji","Jalgaon","Jalna","Kolhapur","Latur","Manmad","Mumbai","Nagpur","Nashik","Osmanabad","Panvel","Parbhani","Pune","Sangli-Miraj-Kupwad","Solapur","Vasai","Virar","Wardha","Washim","Yavatmal" };
+        final CharSequence[] items={"Ahmednaga  r","Akola","Amravati","Aurangabad","Baramati","Barshi","Beed","Bhusawal","Buldana","Chandrapur","Dhule","Gondiya","Ichalkaranji","Jalgaon","Jalna","Kolhapur","Latur","Manmad","Mumbai","Nagpur","Nashik","Osmanabad","Panvel","Parbhani","Pune","Sangli-Miraj-Kupwad","Solapur","Vasai","Virar","Wardha","Washim","Yavatmal" };
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Select City");
         builder.setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {

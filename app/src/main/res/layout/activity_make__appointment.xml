@@ -27,7 +27,7 @@
             />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="Degree"
@@ -37,9 +37,11 @@
             />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/make_apt_Speciality"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/make_apt_name"
+            android:layout_toRightOf="@+id/make_apt_degree"
             android:id="@+id/make_apt_expr"
             android:layout_marginTop="20dp"
             android:textSize="20dp"
@@ -60,7 +62,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/make_apt_expr"
+            android:layout_below="@+id/make_apt_Speciality"
             android:id="@+id/make_apt_clinic_name"
             android:layout_marginTop="20dp"
             android:textSize="20dp"
@@ -85,18 +87,82 @@
             android:textSize="20dp"
             android:layout_alignBaseline="@+id/make_apt_date"
             android:layout_below="@+id/make_apt_clinic_addr"
-            android:layout_marginRight="10dp"
-            android:id="@+id/make_apt_datatext"/>
+            android:layout_marginRight="15dp"
+            android:id="@+id/make_apt_datetext"/>
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_menu_calender"
             android:focusable="false"
             android:text="Choose date"
-            android:layout_toRightOf="@+id/make_apt_datatext"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/make_apt_datetext"
             android:editable="false"
             android:id="@+id/make_apt_date"
             android:layout_below="@id/make_apt_clinic_addr"
             />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Time Slot"
+            android:textSize="20dp"
+            android:layout_alignBaseline="@+id/make_apt_slot"
+            android:layout_below="@+id/make_apt_datetext"
+            android:layout_marginRight="10dp"
+            android:id="@+id/make_apt_timetext"
+            />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/make_apt_date"
+            android:editable="false"
+            android:layout_toRightOf="@+id/make_apt_timetext"
+            android:focusable="false"
+            android:onClick="chooseSlot"
+            android:text="Choose Slot"
+            android:id="@+id/make_apt_slot"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/make_apt_ailment"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:background="@drawable/shape"
+            android:text="Make Appointment"
+            android:drawableTop="@drawable/ic_addappt"
+            android:onClick="makeAppointment"
+            />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Alternative Date:"
+            android:textSize="20dp"
+            android:layout_alignBaseline="@+id/make_apt_date1"
+            android:layout_below="@+id/make_apt_slot"
+            android:layout_marginRight="10dp"
+            android:id="@+id/make_apt_datetext1"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_menu_calender"
+            android:focusable="false"
+            android:text="Choose Alternative \n date"
+            android:layout_toRightOf="@+id/make_apt_datetext1"
+            android:editable="false"
+            android:id="@+id/make_apt_date1"
+            android:layout_below="@id/make_apt_slot"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ailment /Illness"
+            android:layout_below="@+id/make_apt_date1"
+            android:inputType="textMultiLine"
+            android:textSize="20dp"
+            android:id="@+id/make_apt_ailment"
+            />
+
     </RelativeLayout>
 </ScrollView>

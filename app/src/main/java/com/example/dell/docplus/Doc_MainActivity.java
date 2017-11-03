@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,11 +27,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
-
 public class Doc_MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     DatabaseReference dr= FirebaseDatabase.getInstance().getReference();
     TextView nav_name,nav_email;
+    ImageView iv;
     String uid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +81,33 @@ public class Doc_MainActivity extends AppCompatActivity
 
             }
         });
+        /*StorageReference sr= FirebaseStorage.getInstance().getReference().child("images/b.jpg");
+        File local;
+        try {
+             local=File.createTempFile("images","jpg");
+            sr.getFile(local).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                    taskSnapshot.toString();
+                }
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        iv= (ImageView) findViewById(R.id.nav_doc_image);
+        //Log.d("txyz",sr.getDownloadUrl().getResult().toString()) ;
+       /*sr.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.with(Doc_MainActivity.this).load(uri.toString()).into(iv);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(Doc_MainActivity.this,"Cannot Load",Toast.LENGTH_SHORT).show();
+            }
+        });*/
     }
 
     @Override
@@ -121,8 +149,11 @@ public class Doc_MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_schedule) {
-            // Handle the camera action
-        } else if (id == R.id.nav_reschedule) {
+            Intent intent=new Intent(Doc_MainActivity.this,doc_schedule.class);
+            startActivity(intent);
+            finish();
+
+
 
         } else if (id == R.id.nav_profile) {
             Intent intent=new Intent(Doc_MainActivity.this,Doc_profile.class);

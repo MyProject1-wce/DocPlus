@@ -264,8 +264,11 @@ public class Doctor_Signup extends AppCompatActivity {
     public void pickSpecial1(View view) {
         dialog1=new Dialog(Doctor_Signup.this);
         final CharSequence[] items={"Anesthesiologist","Cardiologist","Dermatologist","Nephrologist","Neurologist","Gynecologist","Ophthalmologist","Otolaryngologist","Pathologist","Pediatrician","Plastic Surgeon","Psychiatrist","Rheumatologist","Urologist" };
+        //ArrayList<CharSequence>list=new ArrayList<>();
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Select Speciality");
+
+
         builder.setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
 
             public void onClick(DialogInterface dialog, int item) {

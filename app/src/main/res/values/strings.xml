@@ -8,4 +8,5 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_patient__main">DocPlus-Patient</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_patient__main1">Patient_MainActivity1</string>
 </resources>

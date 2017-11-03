@@ -46,7 +46,9 @@
         <activity
             android:name=".Doc_profile"
             android:label="Change Profile" />
-        <activity android:name=".Patient_profile"></activity>
+        <activity android:name=".Patient_profile" />
+        <activity android:name=".doc_schedule" />
+        <activity android:name=".MyAppointment"></activity>
     </application>
 
 </manifest>
