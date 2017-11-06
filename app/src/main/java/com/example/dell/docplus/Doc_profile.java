@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -16,9 +17,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class Doc_profile extends AppCompatActivity {
     EditText name,mobile,email,age,gender,degree,special,exp,cname,cadd,fees,mobe,degreee,cnamee,cadde,feese;
     DatabaseReference dr;
+    CircleImageView ciw;
+    String url;
     Button btn,btne;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,7 @@ public class Doc_profile extends AppCompatActivity {
         mobile=(EditText)findViewById(R.id.profile_doc_mob);
         mobe=(EditText)findViewById(R.id.profile_doc_mobEdit);
         mobe.setVisibility(View.INVISIBLE);
+        ciw= (CircleImageView) findViewById(R.id.profile_doc_profile_pic);
         email=(EditText)findViewById(R.id.profile_doc_email);
         age=(EditText)findViewById(R.id.profile_doc_agetext);
         gender=(EditText)findViewById(R.id.profile_doc_gender);
@@ -52,6 +58,7 @@ public class Doc_profile extends AppCompatActivity {
         btn=(Button)findViewById(R.id.profile_doc_btn);
         btne=(Button)findViewById(R.id.profile_doc_btnEdit);
         btne.setVisibility(View.INVISIBLE);
+
         Log.d("txyz","1");
         dr= FirebaseDatabase.getInstance().getReference().child("doctors").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         Log.d("txyz","2");
@@ -73,6 +80,8 @@ public class Doc_profile extends AppCompatActivity {
                 cname.setText(dataSnapshot.child("cname").getValue().toString());
                 cadd.setText(dataSnapshot.child("cadd").getValue().toString());
                 fees.setText(dataSnapshot.child("fees").getValue().toString());
+                url=dataSnapshot.child("propic").getValue().toString();
+                Glide.with(Doc_profile.this).load(url).override(100,100).into(ciw);
             }
 
             @Override
@@ -80,6 +89,8 @@ public class Doc_profile extends AppCompatActivity {
 
             }
         });
+
+        //Glide.with(Doc_profile.this).load("").override(100,100).into(ciw);
     }
     public void onBackPressed() {
         //your method call

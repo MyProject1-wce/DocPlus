@@ -13,10 +13,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,19 +26,21 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 
 public class Doc_MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     DatabaseReference dr= FirebaseDatabase.getInstance().getReference();
     TextView nav_name,nav_email;
-    ImageView iv;
-    String uid;
+    CircleImageView iv;
+    String uid,url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doc__main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-      //  toolbar.setLogo(R.drawable.doc);
+
         setSupportActionBar(toolbar);
        // setContentView(R.layout.nav_header_doc__main);
 
@@ -57,10 +59,10 @@ public class Doc_MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_doc);
         navigationView.setNavigationItemSelectedListener(this);
         View hView =  navigationView.getHeaderView(0);
-
+        iv= (CircleImageView) hView.findViewById(R.id.nav_doc_image1);
         nav_name=(TextView)hView.findViewById(R.id.nav_doc_name);
         nav_email=(TextView)hView.findViewById(R.id.nav_doc_email);
         uid=FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -73,6 +75,9 @@ public class Doc_MainActivity extends AppCompatActivity
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 String a=String.valueOf(dataSnapshot.child("name").getValue());
+                url=dataSnapshot.child("propic").getValue().toString();
+                Log.d("txyza",url);
+               Glide.with(Doc_MainActivity.this).load(url).override(100,100).into(iv);
                 nav_name.setText(a);
             }
 

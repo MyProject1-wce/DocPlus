@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -32,12 +33,15 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class Make_Appointment extends AppCompatActivity {
-    String uid,docname,docmobile,patname,patmobile;
+    String uid,url,docname,docmobile,patname,patmobile,mylat,mylong,doclat,doclong;
     EditText datetext,datetext1;
     Calendar c,c1;
     TextView name,degree,special,exp,cname,cadd;
     EditText slotTime,ailment;
+    CircleImageView ciw;
     CharSequence [] slots1=null;
     Dialog dialog1;
     Date date;
@@ -57,6 +61,7 @@ public class Make_Appointment extends AppCompatActivity {
         slotTime= (EditText) findViewById(R.id.make_apt_slot);
         exp=(TextView)findViewById(R.id.make_apt_expr);
         cname=(TextView)findViewById(R.id.make_apt_clinic_name);
+        ciw= (CircleImageView) findViewById(R.id.make_apt_profile_pic);
         cadd=(TextView)findViewById(R.id.make_apt_clinic_addr);
         uid= this.getIntent().getExtras().getString("uid");
         //TextView t=(TextView)findViewById(R.id.display);
@@ -148,14 +153,15 @@ public class Make_Appointment extends AppCompatActivity {
             }
         });
         //Retieve pat data
-        DatabaseReference dat=FirebaseDatabase.getInstance().getReference().child("patients").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        final DatabaseReference dat=FirebaseDatabase.getInstance().getReference().child("patients").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         dat.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                     dataSnapshot.getChildren();
                     patname=dataSnapshot.child("name").getValue().toString();
                     patmobile=dataSnapshot.child("mobile").getValue().toString();
-
+                    mylat=dataSnapshot.child("lat").getValue().toString();
+                    mylong=dataSnapshot.child("long").getValue().toString();
             }
 
             @Override
@@ -175,6 +181,10 @@ public class Make_Appointment extends AppCompatActivity {
                 exp.setText(dataSnapshot.child("experience").getValue().toString());
                 cname.setText(dataSnapshot.child("cname").getValue().toString());
                 cadd.setText(dataSnapshot.child("cadd").getValue().toString());
+                url=dataSnapshot.child("propic").getValue().toString();
+                doclat=dataSnapshot.child("lat").getValue().toString();
+                doclong=dataSnapshot.child("long").getValue().toString();
+                Glide.with(Make_Appointment.this).load(url).override(120,120).into( ciw);
                 docname=name.getText().toString();
                 docmobile=dataSnapshot.child("mobile").getValue().toString();
             }
@@ -332,6 +342,10 @@ public class Make_Appointment extends AppCompatActivity {
         hm.put("docmob",docmobile);
         hm.put("patname",patname);
         hm.put("patmob",patmobile);
+        hm.put("mylat",mylat);
+        hm.put("mylong",mylong);
+        hm.put("doclat",doclat);
+        hm.put("doclong",doclong);
         databaseReference.setValue(hm).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
@@ -355,7 +369,7 @@ public class Make_Appointment extends AppCompatActivity {
     public void onBackPressed() {
         //your method call
         super.onBackPressed();
-        Intent in=new Intent(Make_Appointment.this,Patient_MainActivity.class);
+        Intent in=new Intent(Make_Appointment.this,Doc_Search.class);
         startActivity(in);
         finish();
     }

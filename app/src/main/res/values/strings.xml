@@ -9,4 +9,6 @@
     <string name="title_activity_patient__main">DocPlus-Patient</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_patient__main1">Patient_MainActivity1</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps2">Map</string>
 </resources>

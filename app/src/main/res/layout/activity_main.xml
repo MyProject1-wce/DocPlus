@@ -14,6 +14,12 @@
         android:text="Doctor's Login"
         android:onClick="docLogin"
         android:id="@+id/main_doc_login"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click"
+        android:visibility="invisible"
+        android:onClick="clickme"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -24,6 +30,17 @@
         android:text="Patient's Login"
         android:onClick="patLogin"
         android:id="@+id/main_pat_login"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="61dp"
+        android:text="Button"
+        android:visibility="invisible"
+        android:onClick="showLoc"/>
 
 
 </RelativeLayout>

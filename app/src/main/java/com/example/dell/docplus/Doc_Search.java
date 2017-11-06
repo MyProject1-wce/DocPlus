@@ -121,7 +121,7 @@ public class Doc_Search extends AppCompatActivity {
 
             }
         });
-
+        dr.keepSynced(true);
         //pb.show();
         /*try{
           Thread.sleep(5000);
@@ -164,7 +164,7 @@ public class Doc_Search extends AppCompatActivity {
     }
     public void pickCity(View view) {
        dialog=new Dialog(Doc_Search.this);
-        final CharSequence[] items={"Ahmednaga  r","Akola","Amravati","Aurangabad","Baramati","Barshi","Beed","Bhusawal","Buldana","Chandrapur","Dhule","Gondiya","Ichalkaranji","Jalgaon","Jalna","Kolhapur","Latur","Manmad","Mumbai","Nagpur","Nashik","Osmanabad","Panvel","Parbhani","Pune","Sangli-Miraj-Kupwad","Solapur","Vasai","Virar","Wardha","Washim","Yavatmal" };
+        final CharSequence[] items={"Ahmednagar","Akola","Amravati","Aurangabad","Baramati","Barshi","Beed","Bhusawal","Buldana","Chandrapur","Dhule","Gondiya","Ichalkaranji","Jalgaon","Jalna","Kolhapur","Latur","Manmad","Mumbai","Nagpur","Nashik","Osmanabad","Panvel","Parbhani","Pune","Sangli-Miraj-Kupwad","Solapur","Vasai","Virar","Wardha","Washim","Yavatmal" };
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Select City");
         builder.setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {

@@ -201,6 +201,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -208,11 +209,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class Patient_MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     String uid;
     TextView nav_name;
     TextView nav_email;
+    CircleImageView civ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -238,10 +242,10 @@ public class Patient_MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_pat);
         navigationView.setNavigationItemSelectedListener(this);
         View hView =  navigationView.getHeaderView(0);
-
+        civ= (CircleImageView)hView.findViewById(R.id.nav_pat_image);
         nav_name=(TextView)hView.findViewById(R.id.nav_pat_name);
         nav_email=(TextView)hView.findViewById(R.id.nav_pat_email);
         uid=FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -254,6 +258,8 @@ public class Patient_MainActivity extends AppCompatActivity
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 String a=String.valueOf(dataSnapshot.child("name").getValue());
+                String url=dataSnapshot.child("propic").getValue().toString();
+                Glide.with(Patient_MainActivity.this).load(url).override(100,100).into(civ);
                 nav_name.setText(a);
             }
 
